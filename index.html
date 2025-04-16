@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fredrick Mwangi - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #2a4967;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--secondary-color);
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Home Section */
+        #home {
+            padding-top: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .image-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .name {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            max-width: 500px;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary-color);
+        }
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .skill-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #285AEB;
+            margin-bottom: 0.5rem;
+
+        }
+
+        .skill-card div:not(.skill-name) {
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .proficiency {
+            font-weight: 600;
+            color: var(--secondary-color);
+            padding-top: 0.5rem;
+            border-top: 1px dashed #eee;
+        }
+
+        /* Hobbies Section */
+        .hobbies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hobby-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hobby-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        /* Media Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .description {
+            padding: 1rem;
+            text-align: center;
+            background: var(--light-color);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .contact-icon-large {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-detail {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            word-break: break-all;
+        }
+
+        .social-links-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        .github { background: #333; }
+        .whatsapp { background: #25D366; }
+        .email { background: #D44638; }
+        .linkedin { background: #0077B5; }
+        .instagram { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .contact-form {
+            margin-top: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            display: none;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 60vh;
+            margin-bottom: 1rem;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 80px;
+                background-color: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .burger {
+                display: block;
+            }
+
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Fredrick Mwangi</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#media">Media</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="container home-content">
+                <div class="text-content">
+                    <h1>Hi, I'm <span class="name">Fredrick Mwangi</span></h1>
+                    <h2>A Web Developer & Designer</h2>
+                    <p>I'm a passionate student at the University of Nairobi doing public administartion and sociology , much interested in governance ,policy and social organization and development , I'm also a beginner  in web developer. With mich interest in innovation and creativity, I enjoy building  simple dynamic, user-friendly projects.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/qr/TBQ73RSER6ZPI1" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.linkedin.com/in/frederick-mwangi-3406a633a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/rick_mwangi_43?igsh=MTI4MHBjdXdzbmRyeg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/Fred-045" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                    
+                    <a href="#contact" class="btn">Contact Me</a>
+                    <br>
+                    <br>
+                    <a href="https://pdf.ac/4GfQvN" class="btn" target="_blank" style="margin-left: 15px;">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                
+                <div class="image-content">
+                    <img src="https://media-hosting.imagekit.io/28df5c8c938646a2/IMG-20250309-WA0019_3.jpg?Expires=1837701174&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=PxWRcnoxkLGWLDJb1GG-k9NHMdeDCt0O6d4NF9k~6Iq92Ga38ZA2aFj2XrCZSHlDmFC~RaGUJlsUkBYOLKPRyrmUpATX-DhDy-egymTy3MlHjqoVfFOqkORuGbL6NRb0Nl95ELIOV4hsYXvmq1QkaSHv64BamDjnmchblX1cJecJclkTIBV5Fa7a2NdgLxHlBfY~I2WGOh6FRnYA8uYWJN8IPmcs~7hA4pHt1PmDKFsnf01GUSxVeNhfAUEm6qSF3-uEcvFDhEuvz2amYTrnYP2qox3Uw0nWdVZfkW0oeKldAKxeyTsN3WiPF9bPJcbL6f2qeCJti57YQeKW1J-0iw__" alt="Fredrick Mwangi" class="profile-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h1 class="section-title">My Education</h1>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Public Administration and Sociology</h3>
+                            <h4>The University of Nairobi</h4>
+                            <p class="date">2021 - 2025</p>
+                            <p>(Expected Graduation: 2025) Relevant Coursework: Policy Analysis, Communication Strategies, research, social network, Leadership and Governance</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Web Development</h3>
+                            <h4>Power learn Project</h4>
+                            <p class="date">2024 - 2025</p>
+                            <p>Software Development covering python, web development, and Database management using SQL</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>High School</h3>
+                            <h4>St Anthony Engashura Secondary School</h4>
+                            <p class="date">2017 - 2021</p>
+                            <p>KCSE C+ . 53 AGP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h1 class="section-title">My Skills</h1>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <div class="skill-name">Computing</div>
+                        <div>Proficient in Microsoft Office Suite (Word, Excel, PowerPoint), Google Workspace , microsoft office suit (word, Excel and powerpoint) Graphics design and basic knowledge of programming languages (Python, SQL).</div>
+                        <div class="proficiency">Proficiency: Intermediate</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Communication</div>
+                        <div>Strong verbal and written communication skills, with the ability to present ideas clearly and concisely.
+                            .public speaking,community engagement and conflict resolution
+                        </div>
+                        <div class="proficiency">Proficiency: Advanced</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Administrative and organization skills</div>
+                        <div>Reporting writing and documentation, strategic planing, project coordination and time management</div>
+                        <div class="proficiency">Proficiency: Intermediate</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Web Design</div>
+                        <div>Creating user-friendly interfaces and experiences.</div>
+                        <div class="proficiency">Proficiency: Beginner</div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-name">Research and Analytic Analysis</div>
+                        <div>Social research, Quantitative and qualitative research ,Critical thinking and decision making</div>
+                        <div class="proficiency">Proficiency: Beginner</div>
+                    </div>
+                    <div class="skill-card">
+                        <div  style="color: #4c85c0; font-weight: bolder">Problem Solving</div>
+                        <div>Analyzing and solving complex technical challenges.</div>
+                        <div class="proficiency">Proficiency: Intermediate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies" class="section">
+            <div class="container">
+                <h1 class="section-title">My Hobbies</h1>
+                <div class="hobbies-container">
+                    <div class="hobby-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Coding</h3>
+                        <p>Exploring new technologies and building side projects</p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Reading</h3>
+                        <p>reading novels, historic and documentations and current affairs </p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Gaming</h3>
+                        <p>playing computer games , candy crush, ps 5 and payback 2</p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-camera"></i>
+                        <h3>Photography</h3>
+                        <p>Capturing landscapes ,urban scenes and taking  random pictures</p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-music"></i>
+                        <h3>Playing board games and Music</h3>
+                        <p>Playing games like chess, ludo, scramble , monopoly  and listening to music </p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-bus"></i>
+                        <h3>Traveling</h3>
+                        <p>I like adventure , visiting new places and meeting new people </p>
+                    </div>
+                    <div class="hobby-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Cooking</h3>
+                        <p>Experimenting with new recipes and cuisines</p>
+                    </div>
+                </div>
+            </div>
+        </section>v 
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h1 class="section-title">About Me</h1>
+                <div class="profile-section">
+                    <img src="https://media-hosting.imagekit.io/6d3f76d17adb46a9/David.jpg?Expires=1839360420&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=mQV47HDJjFZo-2G2Spvq6wul6YWpcxGbmku9d4V5aobXg9FDTuL1CTf4czYPbnfoxX2PNPcsmJ0R9Wrb6VpG0AYe5bMnXhe4WfA6ANIicmOvNcV6DEeTJXSF9~z5CnnrQs34kBwChGDY9MreXx-LLaDTtMMcCK9e6WRvCaSrNyOjZHNmep1r-QgQq1-2Fu4bhkSh~41k9h8w8C6Rs-mLXP~uBehcMOqXG6IolHMQH0vcwH7ftQrp~YUH6qnz8NOuHfWz5Y7bNjViK~TBJARTWvMkwi4LNAis9TdkqZ0jFRRPe~BoVdeBXay4XrZo9ZDwDyxItfhFXOdrrCrBEEqR~A__" alt="Fredrick Mwangi" class="profile-image">
+                </div>
+                
+                <div class="about-content animated">
+                    <h2>About Me</h2>
+                    <p>I am Fredrick Mwangi, a dedicated Kenyan student pursuing a Bachelor's degree in Public Administration and Sociology at the University of Nairobi, with a keen focus on policy analysis, leadership, and strategic governance.</p>
+                    
+                    <p>Complementing my academic journey, I have honed technical expertise in <span class="highlight">Python</span>, <span class="highlight">SQL</span>, and <span class="highlight">web development</span> through a Software Development certification from the Power Learn Project. Driven by a passion for data-driven solutions, I aim to bridge policy analysis with technology to foster operational efficiency and impactful decision-making.</p>
+                    
+                    <p>My professional experience includes roles such as <span class="highlight">Voter Clerk at IEBC</span>, where I ensured electoral integrity by biometrically verifying 800+ voters, and <span class="highlight">Facilities Management Assistant</span> at the University of Nairobi, maintaining 100% compliance with health and safety protocols.</p>
+                    
+                    <p>Adept in <span class="highlight">team leadership</span>, <span class="highlight">communication</span>, and <span class="highlight">time management</span>, I thrive in collaborative environments tackling complex challenges. Beyond work, I enjoy programming, competitive puzzle-solving, and football, balancing analytical rigor with creative problem-solving.</p>
+                    
+                    <p>Committed to growth, I strive to contribute meaningfully to strategic initiatives in public administration and tech-driven policy innovation.</p>
+                    
+                    <div class="contact-info">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="section">
+            <div class="container">
+                <h1 class="section-title">Media Gallery</h1>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/06/3b/93/063b93e90a46053394006c5c210bf41b.jpg" alt="Graphic Design Project">
+                        <div class="description">Graphic Design Project</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/54/e3/c0/54e3c0564bd1b64c82c5a482d6895d4c.jpg" alt="Web Development Work">
+                        <div class="description">Web Development Work</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://media-hosting.imagekit.io/ddcdb23541754611/Screenshot%20(367).png?Expires=1837707273&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=yB518l-ZP7XX3cAHBy2-GPPxV-qFAkU~xBjK1amH-L75Mrr6NTdlYmcQ1nqgg1RoGK946Tbxa6OkAuyktsU-4jPucZY0-6mVOiEndLXnG6hJlVEa1WPKlFTPRC9DvE73Rwxnwnazct66lTv7hDMGZMq-9wpGXCxRGtA78HQQeFhASDoN1nFc~SwI3W-Ioz8n9yP94rskXdEFecXHdAIt9rd4gP-9FPdthMkX66KAoDQAVODWwoftcSainlDLDQ2zwgRVsgGNCiWGbWRzmJsegHVt40HYE2N6wCNeIMvk5gMVEHyTL48O4KBgcZtPGxyKgnidSJY7p4Wh1V-N2nLOXA__" alt="Academic">
+                        <div class="description">Academic</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/0b/13/b3/0b13b3e021bea52b330af34adbc5af5f.jpg" alt="Excel">
+                        <div class="description">Excel</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://media-hosting.imagekit.io/5cecd3abdd3b4d51/Screenshot_20250315-204707.jpg?Expires=1837706377&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=v6qac9IRWz6oltvfiDkkizehELfk-s7vedmS7AH5s4B6ytvpZqlApBggDZyeZn45wfTmpsqh8EKiHkm8A7p40BiLsOZr~BTZyv~6mKWSNaa7nEOycWfZL09d787N4lqkguQp0kzWkf8G9tAP4qz1Y8SqBpN-hhmgVoRt7dRYI8lipnyNABbVuvYe-2YBOPLj8VW9tY0xB5Ljk~2Jl3E5XPNzMWrCFACEjzravu59QszcsBSs5KdyCIFUXhg0ZBVTQww1q6Kux3NRz~eZMLrJs-dRW5gTq1jF6mgLvDFFSM00hOWXpV0oyNUvdiYlNSO6gjoaGQdxlbtxlhmVwovztA__" alt="Graphic Certification">
+                        <div class="description">Graphic Certification</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://media-hosting.imagekit.io/7c7b608c2c0c48ed/Screenshot%20(357).png?Expires=1837706210&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=2BbX9nL2muK-t72030glbmPTxWsAKWZpc2ZUisGbGA5LeMeWGXaG98xtU4KCtUnAsuPZU62~AyHKeDqVxVZjgCERizSLdOCQ7DJyg98gum~MvYcbJezHAsiSBXxmSQ4x61l4d5T-Vx5dDhFzHatfz2ptXqNquzJMd0zXDRyLV96rKl4SufPUqPmeaprD452jf~5yABNesnau~Rj0fcSzYXfUIbsEvzdr2iZxQj6m0Cou9BsaxM9GbbdcXClvqBfBXe3FBI6zr4FkHLSYcOlkFNRSbgT9G8rp8nE3~W2edNcES1QA0aOPjQRVYU5fLZp6DwiU6MsqHIg3vqAc4yExfg__" alt="Web Development Certification">
+                        <div class="description">Web Development Certification</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://i.pinimg.com/736x/30/7b/17/307b172ee95af7a7e6130a4b59a8026e.jpg" alt="Power Point">
+                        <div class="description">Power Point</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h1 class="section-title">Get In Touch</h1>
+                <p class="lead">Feel free to reach out through any of these channels</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-card" onclick="contactVia('email')">
+                        <div class="contact-icon-large">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-name">Email</div>
+                        <div class="contact-detail">mwangifrederick773@gmail.com</div>
+                    </div>
+                    
+                    <div class="contact-card" onclick="contactVia('whatsapp')">
+                        <div class="contact-icon-large">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-name">WhatsApp</div>
+                        <div class="contact-detail">+254750546745</div>
+                    </div>
+                    
+                    <div class="contact-card" onclick="contactVia('call')">
+                        <div class="contact-icon-large">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-name">Call</div>
+                        <div class="contact-detail">+254791707323</div>
+                    </div>
+                </div>
+                
+                <div class="social-links-contact">
+                    <a href="https://github.com/Fred-045" class="social-link github" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/qr/TBQ73RSER6ZPI1" class="social-link whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:mwangifrederick773@gmail.com" class="social-link email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/frederick-mwangi-3406a633a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link linkedin" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rick_mwangi_43?igsh=MTI4MHBjdXdzbmRyeg==" class="social-link instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Me a Message</h2>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Fredrick Mwangi. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <div class="lightbox-content">
+            <span class="close">&times;</span>
+            <img src="" alt="">
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links li');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Burger animation
+            burger.classList.toggle('toggle');
+        });
+
+        // Close mobile menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Contact form handling
+        const messageForm = document.getElementById('messageForm');
+        
+        messageForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            messageForm.reset();
+        });
+
+        // Lightbox functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxDesc = lightbox.querySelector('p');
+        const closeBtn = lightbox.querySelector('.close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                const description = this.querySelector('.description').textContent;
+                
+                lightboxImg.src = imgSrc;
+                lightboxDesc.textContent = description;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        // Contact methods
+        function contactVia(method) {
+            switch(method) {
+                case 'email':
+                    window.location.href = 'mailto:mwangifrederick773@gmail.com';
+                    break;
+                case 'whatsapp':
+                    window.open('https://wa.me/254750546745', '_blank');
+                    break;
+                case 'call':
+                    window.location.href = 'tel:+254791707323';
+                    break;
+            }
+        }
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        };
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+    </script>
+</body>
+</html>
